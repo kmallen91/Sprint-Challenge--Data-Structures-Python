@@ -12,18 +12,17 @@ class RingBuffer:
         if self.capacity > self.storage.length:
             self.storage.add_to_tail(item)
             self.current = self.storage.head
-        # if current = tail, remove tail and replace
+        # if current = tail, remove tail and replace, move current to head
         elif self.current is self.storage.tail:
             self.storage.remove_from_tail()
             self.storage.add_to_tail(item)
-        # set current to last entered value
             self.current = self.storage.head
-        # if current item is the head, remove and replace
+        # if current item is the head, remove and replace, move current to next item
         elif self.current is self.storage.head:
             self.storage.remove_from_head()
             self.storage.add_to_head(item)
             self.current = self.current.next
-        # for all other places in buffer, add, replace and move pointers
+        # for all other places in buffer, add "before" (to the right), replace and move current to next
         else:
             self.current.insert_before(item)
             self.current.delete()
