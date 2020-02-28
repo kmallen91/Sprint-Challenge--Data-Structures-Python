@@ -19,6 +19,7 @@ duplicates = []  # Return the list of duplicates in this data structure
 #         if name_1 == name_2:
 #             duplicates.append(name_1)
 
+
 # Runtime to insert one file into binary tree is O(n).
 # Runtime to search binary tree if file 2 matches file 1 is O(log n)
 # Total runtime = O(nlog n) < O(n^2)
